@@ -1,4 +1,4 @@
 package com.trading.trader.service;
 
-public class TradeServiceImpl {
+public class TradeServiceImpl implements TradeService{
 }

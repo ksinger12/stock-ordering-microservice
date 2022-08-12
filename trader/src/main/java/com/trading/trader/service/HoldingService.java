@@ -1,5 +1,7 @@
 package com.trading.Holding.service;
 
+import com.trading.trader.entities.Holding;
+
 public interface HoldingService {
     Iterable<Holding> getAllHoldings();
     Iterable<Holding> getAllTickerHoldings(String tickerSymbol);

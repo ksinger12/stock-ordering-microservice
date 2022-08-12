@@ -1,5 +1,7 @@
 package com.trading.trader.service;
 
+import com.trading.trader.entities.Trade;
+
 public interface TradeService {
     Iterable<Trade> getAllTrades();
     Iterable<Trade> getAllTickerTrades(String tickerSymbol);
