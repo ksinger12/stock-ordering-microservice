@@ -1,4 +1,4 @@
-package com.trading.Holding.service;
+package com.trading.trader.service;
 
 import com.trading.trader.entities.Holding;
 
