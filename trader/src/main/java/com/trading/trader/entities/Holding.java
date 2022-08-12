@@ -5,13 +5,10 @@ import java.io.Serializable;
 
 @Entity @Table(name="holdings")
 public class Holding implements Serializable {
-<<<<<<< Updated upstream
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
-=======
->>>>>>> Stashed changes
 
     // add attributes for all the remaining properties
     @Column(name="symbol") private String symbol;
