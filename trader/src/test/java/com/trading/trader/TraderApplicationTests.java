@@ -8,21 +8,26 @@ import com.crazzyghost.alphavantage.parameters.OutputSize;
 import com.crazzyghost.alphavantage.timeseries.TimeSeries;
 import com.crazzyghost.alphavantage.timeseries.response.TimeSeriesResponse;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 
 @SpringBootTest
+@ContextConfiguration(classes=AlphaVantageConfig.class)
 class TraderApplicationTests {
 
+	@Autowired
+	public AlphaVantage alphaVantage;
 	@Test
 	void contextLoads() {
-		Config cfg = Config.builder()
-				.key("RBJRR2YCUMFQRRKZ")
-				.timeOut(10)
-				.build();
+//		Config cfg = Config.builder()
+//				.key("RBJRR2YCUMFQRRKZ")
+//				.timeOut(10)
+//				.build();
+//
+//		AlphaVantage.api().init(cfg);
 
-		AlphaVantage.api().init(cfg);
-
-		TimeSeriesResponse response = AlphaVantage.api()
+		TimeSeriesResponse response = alphaVantage
 				.timeSeries()
 				.intraday()
 				.forSymbol("IBM")
