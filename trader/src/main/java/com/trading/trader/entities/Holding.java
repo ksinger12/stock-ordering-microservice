@@ -11,7 +11,7 @@ public class Holding implements Serializable {
     private int id;
 
     // add attributes for all the remaining properties
-    @Column(name="symbol") private String symbol;
+    @Column(name="tickerSymbol") private String tickerSymbol;
     @Column(name="companyName") private String companyName;
     @Column(name="numberOfShares") private Integer numberOfShares;
     @Column(name="portfolioStake") private Double portfolioStake;
@@ -25,12 +25,12 @@ public class Holding implements Serializable {
         this.id = id;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public String getTickerSymbol() {
+        return tickerSymbol;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setTickerSymbol(String tickerSymbol) {
+        this.tickerSymbol = tickerSymbol;
     }
 
     public String getCompanyName() {

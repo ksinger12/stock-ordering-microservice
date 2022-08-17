@@ -16,10 +16,9 @@ public class TradeServiceImpl implements TradeService {
         return tradeDao.findAll();
     }
 
-    // TODO: proper implementation later!
     @Override
     public Iterable<Trade> getAllTickerTrades(String tickerSymbol) {
-         return tradeDao.findAll();
+        return tradeDao.findByTickerSymbol(tickerSymbol);
     }
 
     // TODO: proper implementation later!
@@ -30,7 +29,7 @@ public class TradeServiceImpl implements TradeService {
 
     @Override
     public Trade addNewTrade(Trade trade) {
-        return null;
+        return tradeDao.save(trade);
     }
 
     @Override

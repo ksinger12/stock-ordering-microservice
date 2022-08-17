@@ -19,11 +19,11 @@ public class Trade implements Serializable {
     // add attributes for all the remaining properties
     @Column(name="tickerSymbol") private String tickerSymbol;
     @Column(name="dateEntered") private String dateEntered;
-    @Column(name="orderType") private Integer orderType;
+    @Column(name="orderType") private String orderType;
     @Column(name="quantity") private Integer quantity;
     @Column(name="price") private Double price;
 
-    public Trade(int id, String tickerSymbol, String dateEntered, Integer orderType, Integer quantity, Double price) {
+    public Trade(int id, String tickerSymbol, String dateEntered, String orderType, Integer quantity, Double price) {
         this.id = id;
         this.tickerSymbol = tickerSymbol;
         this.dateEntered = dateEntered;
@@ -60,11 +60,11 @@ public class Trade implements Serializable {
         this.dateEntered = dateEntered;
     }
 
-    public Integer getOrderType() {
+    public String getOrderType() {
         return orderType;
     }
 
-    public void setOrderType(Integer orderType) {
+    public void setOrderType(String orderType) {
         this.orderType = orderType;
     }
 
