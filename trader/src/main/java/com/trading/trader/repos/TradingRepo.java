@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TradingRepo extends JpaRepository<Trade, Integer> {
-    public Iterable<Trade> findByTickerSymbol(String tickerSymbol);
+    public Iterable<Trade> findByTickerSymbol(String symbol);
 }
