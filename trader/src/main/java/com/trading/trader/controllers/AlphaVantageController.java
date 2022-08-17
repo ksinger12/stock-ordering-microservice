@@ -16,18 +16,19 @@ public class AlphaVantageController {
     @Autowired
     AlphaVantageServiceImpl alphaVantageService;
 
-    @GetMapping(value = "company/{stockTicker}/{timeStep}")
+    @GetMapping(value = "/company/{stockTicker}/{timeStep}")
     public TimeSeriesResponse getStockData(@PathVariable("stockTicker") String ticker, @PathVariable("timeStep") String timeStep) {
         Interval interval = Interval.valueOf(timeStep);
-        return alphaVantageService.getTimeSeriesData(ticker, interval);
+        TimeSeriesResponse timeSeriesResponse = alphaVantageService.getTimeSeriesData(ticker, interval);
+        return timeSeriesResponse;
     }
 
-    @GetMapping(value = "company/overview/{stockTicker}")
+    @GetMapping(value = "/company/overview/{stockTicker}")
     public CompanyOverviewResponse getCompanyOverview(@PathVariable("stockTicker") String ticker) {
         return alphaVantageService.getStockCompanyOverview(ticker);
     }
 
-    @GetMapping(value = "sector")
+    @GetMapping(value = "/sector")
     public SectorResponse getSectorInformation() {
         return alphaVantageService.getSectorInfo();
     }
