@@ -6,7 +6,7 @@ public interface TradeService {
     Iterable<Trade> getAllTrades();
     Iterable<Trade> getAllTickerTrades(String tickerSymbol);
     Iterable<Trade> getTradesInDateRange(String startTime, String endTime);
-    String addNewTrade(Trade trade, String companyName);
+    String addNewTrade(Trade trade);
     void deleteTrade(int id);
     void deleteTrade(Trade trade);
     Trade updateTrade(Trade trade);
