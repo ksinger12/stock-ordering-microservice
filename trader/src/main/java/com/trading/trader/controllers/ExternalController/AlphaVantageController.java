@@ -1,4 +1,4 @@
-package com.trading.trader.controllers;
+package com.trading.trader.controllers.ExternalController;
 
 import com.crazzyghost.alphavantage.fundamentaldata.response.CompanyOverviewResponse;
 import com.crazzyghost.alphavantage.parameters.Interval;

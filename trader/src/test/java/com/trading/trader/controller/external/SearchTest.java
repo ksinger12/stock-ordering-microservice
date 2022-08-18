@@ -1,4 +1,4 @@
-package com.trading.trader;
+package com.trading.trader.controller.external;
 
 
 import org.junit.jupiter.api.Test;
