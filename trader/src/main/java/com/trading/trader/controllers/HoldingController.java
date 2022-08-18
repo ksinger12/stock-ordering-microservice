@@ -29,12 +29,5 @@ public class HoldingController {
         holdingService.addNewHolding(holding);
     }
 
-//    @PutMapping(value = "/{ticker}")
-//    public void editHolding(String ticker) {
-//        //TODO: must do try catch in case ticker doesn't exist!
-//        holdingService.updateHolding()
-//
-//    }
-
 
 }
