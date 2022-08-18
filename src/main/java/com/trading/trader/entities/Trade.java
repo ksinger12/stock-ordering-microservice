@@ -18,13 +18,18 @@ public class Trade implements Serializable {
 
     // add attributes for all the remaining properties
     @Column(name="tickerSymbol") private String tickerSymbol;
+
+
+    @Column(name="companyName") private String companyName;
     @Column(name="dateEntered") private String dateEntered;
     @Column(name="orderType") private String orderType;
     @Column(name="quantity") private Integer quantity;
     @Column(name="price") private Double price;
 
-    public Trade(String tickerSymbol, String dateEntered, String orderType, Integer quantity, Double price) {
+    public Trade(int id, String tickerSymbol, String companyName, String dateEntered, String orderType, Integer quantity, Double price) {
+        this.id = id;
         this.tickerSymbol = tickerSymbol;
+        this.companyName = companyName;
         this.dateEntered = dateEntered;
         this.orderType = orderType;
         this.quantity = quantity;
@@ -32,12 +37,6 @@ public class Trade implements Serializable {
     }
 
     public Trade() {
-    }
-
-    public Trade(String tickerSymbol, String orderType, Integer quantity) {
-        this.tickerSymbol = tickerSymbol;
-        this.orderType = orderType;
-        this.quantity = quantity;
     }
 
 
@@ -57,6 +56,13 @@ public class Trade implements Serializable {
         this.tickerSymbol = tickerSymbol;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
     public String getdateEntered() {
         return dateEntered;
     }
