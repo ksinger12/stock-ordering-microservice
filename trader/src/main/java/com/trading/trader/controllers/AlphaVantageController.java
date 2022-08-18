@@ -19,8 +19,7 @@ public class AlphaVantageController {
     @GetMapping(value = "/company/{stockTicker}/{timeStep}")
     public TimeSeriesResponse getStockData(@PathVariable("stockTicker") String ticker, @PathVariable("timeStep") String timeStep) {
         Interval interval = Interval.valueOf(timeStep);
-        TimeSeriesResponse timeSeriesResponse = alphaVantageService.getTimeSeriesData(ticker, interval);
-        return timeSeriesResponse;
+        return alphaVantageService.getTimeSeriesData(ticker, interval);
     }
 
     @GetMapping(value = "/company/overview/{stockTicker}")

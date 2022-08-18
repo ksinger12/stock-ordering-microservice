@@ -16,14 +16,13 @@ public class AlphaVantageServiceImpl implements AlphaVantageService {
 
     @Override
     public TimeSeriesResponse getTimeSeriesData(String stockSymbol, Interval interval) {
-        TimeSeriesResponse timeSeriesResponse = alphaVantage
+        return alphaVantage
                 .timeSeries()
                 .intraday()
                 .forSymbol(stockSymbol)
                 .interval(interval)
                 .outputSize(OutputSize.FULL)
                 .fetchSync();
-        return timeSeriesResponse;
     }
 
     @Override
