@@ -1,6 +1,5 @@
 package com.trading.trader.service;
 
-import com.sun.xml.bind.v2.TODO;
 import com.trading.trader.entities.Holding;
 import com.trading.trader.entities.Trade;
 import com.trading.trader.repos.HoldingRepo;
@@ -12,11 +11,11 @@ import java.util.Optional;
 
 @Service
 public class TradeServiceImpl implements TradeService {
-
     @Autowired
     private TradingRepo tradeDao;
     @Autowired
     private HoldingRepo holdingDao;
+
     @Override
     public Iterable<Trade> getAllTrades() {
         return tradeDao.findAll();
@@ -32,7 +31,6 @@ public class TradeServiceImpl implements TradeService {
     public Iterable<Trade> getTradesInDateRange(String startTime, String endTime) {
         return tradeDao.findAll();
     }
-
 
 
     //TODO: doing a trade here should also be writing to the holdings table
@@ -69,7 +67,6 @@ public class TradeServiceImpl implements TradeService {
 
             // update the appropriate holding using share quantity info
             holdingToBeUpdated.get().setNumberOfShares(holdingQuantity);
-
             updatedHolding = holdingToBeUpdated.get();
 
         } else {
@@ -95,8 +92,6 @@ public class TradeServiceImpl implements TradeService {
         tradeDao.save(trade);
 
         return "order placed successfully";
-
-
     }
 
     @Override
