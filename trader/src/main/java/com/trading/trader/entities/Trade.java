@@ -23,8 +23,7 @@ public class Trade implements Serializable {
     @Column(name="quantity") private Integer quantity;
     @Column(name="price") private Double price;
 
-    public Trade(int id, String tickerSymbol, String dateEntered, String orderType, Integer quantity, Double price) {
-        this.id = id;
+    public Trade(String tickerSymbol, String dateEntered, String orderType, Integer quantity, Double price) {
         this.tickerSymbol = tickerSymbol;
         this.dateEntered = dateEntered;
         this.orderType = orderType;
@@ -33,6 +32,12 @@ public class Trade implements Serializable {
     }
 
     public Trade() {
+    }
+
+    public Trade(String tickerSymbol, String orderType, Integer quantity) {
+        this.tickerSymbol = tickerSymbol;
+        this.orderType = orderType;
+        this.quantity = quantity;
     }
 
 

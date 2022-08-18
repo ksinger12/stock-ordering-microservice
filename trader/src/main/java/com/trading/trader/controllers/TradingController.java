@@ -31,8 +31,8 @@ public class TradingController {
     }
 
     @PostMapping(value = "/")
-    public void addTrade(@RequestBody Trade trade) {
-        tradeService.addNewTrade(trade);
+    public void addTrade(@RequestBody Trade trade, String companyName) {
+        tradeService.addNewTrade(trade, companyName);
 
         //TODO: each trade will affect the holdings, so should implement that somehow
     }

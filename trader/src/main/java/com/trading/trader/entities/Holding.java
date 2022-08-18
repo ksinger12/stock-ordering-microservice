@@ -16,6 +16,16 @@ public class Holding implements Serializable {
     @Column(name="numberOfShares") private Integer numberOfShares;
     @Column(name="portfolioStake") private Double portfolioStake;
 
+    public Holding(String tickerSymbol, String companyName, Integer numberOfShares, Double portfolioStake) {
+        this.tickerSymbol = tickerSymbol;
+        this.companyName = companyName;
+        this.numberOfShares = numberOfShares;
+        this.portfolioStake = portfolioStake;
+    }
+
+    public Holding() {
+    }
+
 
     public int getId() {
         return id;
