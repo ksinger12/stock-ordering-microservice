@@ -5,19 +5,26 @@ import java.io.Serializable;
 
 @Entity @Table(name="holdings")
 public class Holding implements Serializable {
-<<<<<<< Updated upstream
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
-=======
->>>>>>> Stashed changes
 
     // add attributes for all the remaining properties
-    @Column(name="symbol") private String symbol;
+    @Column(name="tickerSymbol") private String tickerSymbol;
     @Column(name="companyName") private String companyName;
     @Column(name="numberOfShares") private Integer numberOfShares;
     @Column(name="portfolioStake") private Double portfolioStake;
+
+    public Holding(String tickerSymbol, String companyName, Integer numberOfShares, Double portfolioStake) {
+        this.tickerSymbol = tickerSymbol;
+        this.companyName = companyName;
+        this.numberOfShares = numberOfShares;
+        this.portfolioStake = portfolioStake;
+    }
+
+    public Holding() {
+    }
 
 
     public int getId() {
@@ -28,12 +35,12 @@ public class Holding implements Serializable {
         this.id = id;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public String getTickerSymbol() {
+        return tickerSymbol;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setTickerSymbol(String tickerSymbol) {
+        this.tickerSymbol = tickerSymbol;
     }
 
     public String getCompanyName() {

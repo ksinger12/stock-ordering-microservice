@@ -17,22 +17,27 @@ public class Trade implements Serializable {
     private int id;
 
     // add attributes for all the remaining properties
-    @Column(name="symbol") private String symbol;
-    @Column(name="dateTime") private String dateTime;
-    @Column(name="orderType") private Integer orderType;
+    @Column(name="tickerSymbol") private String tickerSymbol;
+    @Column(name="dateEntered") private String dateEntered;
+    @Column(name="orderType") private String orderType;
     @Column(name="quantity") private Integer quantity;
     @Column(name="price") private Double price;
 
-    public Trade(int id, String symbol, String dateTime, Integer orderType, Integer quantity, Double price) {
-        this.id = id;
-        this.symbol = symbol;
-        this.dateTime = dateTime;
+    public Trade(String tickerSymbol, String dateEntered, String orderType, Integer quantity, Double price) {
+        this.tickerSymbol = tickerSymbol;
+        this.dateEntered = dateEntered;
         this.orderType = orderType;
         this.quantity = quantity;
         this.price = price;
     }
 
     public Trade() {
+    }
+
+    public Trade(String tickerSymbol, String orderType, Integer quantity) {
+        this.tickerSymbol = tickerSymbol;
+        this.orderType = orderType;
+        this.quantity = quantity;
     }
 
 
@@ -44,27 +49,27 @@ public class Trade implements Serializable {
         this.id = id;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public String gettickerSymbol() {
+        return tickerSymbol;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void settickerSymbol(String tickerSymbol) {
+        this.tickerSymbol = tickerSymbol;
     }
 
-    public String getDateTime() {
-        return dateTime;
+    public String getdateEntered() {
+        return dateEntered;
     }
 
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    public void setdateEntered(String dateEntered) {
+        this.dateEntered = dateEntered;
     }
 
-    public Integer getOrderType() {
+    public String getOrderType() {
         return orderType;
     }
 
-    public void setOrderType(Integer orderType) {
+    public void setOrderType(String orderType) {
         this.orderType = orderType;
     }
 
