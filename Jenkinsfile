@@ -6,16 +6,10 @@ pipeline {
   agent any
 
   stages {
-    stage('Test') {
+    stage('Package') {
       steps {
         sh 'chmod a+x mvnw'
-        sh './mvnw clean test'
-      }
-    }
-
-    stage('Build') {
-      steps {
-        sh './mvnw package'
+        sh './mvnw clean package'
       }
     }
 
