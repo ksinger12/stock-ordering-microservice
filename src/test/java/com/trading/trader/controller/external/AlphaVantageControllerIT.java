@@ -16,7 +16,7 @@ public class AlphaVantageControllerIT {
     private TestRestTemplate template;
 
     @Test
-    public void stockTickerAndtimeStep_getStockData_returnTimeSeriesResponseData() throws Exception {
+    public void stockTickerAndTimeStep_getStockData_returnTimeSeriesResponseData() throws Exception {
         // Initialize
         String stockTicker = "IBM";
         String timeStep = "FIVE_MIN";
