@@ -3,18 +3,21 @@ package com.trading.trader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-import springfox.documentation.service.Contact;
 
 @EnableSwagger2
+@EnableWebMvc
 @Profile("!test") // here to fix a bug in swagger since swagger messes up the test class
 @Component
-public class SwaggerConfig {
+public class SwaggerConfig implements WebMvcConfigurer {
     @Bean
     public Docket newsApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -23,6 +26,12 @@ public class SwaggerConfig {
                 .select()
                 .paths(PathSelectors.any())
                 .build();
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
     private ApiInfo apiInfo() {
