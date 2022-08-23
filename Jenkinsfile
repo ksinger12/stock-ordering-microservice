@@ -6,22 +6,19 @@ pipeline {
   agent any
 
   stages {
-    stage('Package') {
-      steps {
-        sh 'chmod a+x mvnw'
-        sh './mvnw clean package'
+     stage('Build docker image') {
+          // this stage also builds and tests the Java project using Maven
+          steps {
+            sh "docker build -t ${dockerImageTag} ."
+          }
       }
-    }
-
-    stage('Build Container') {
-      steps {
-        sh "docker build -t ${dockerImageTag} ."
-      }
-    }
-
     stage('Deploy Container To Openshift') {
+      environment {
+           OPENSHIFT_CREDS = credentials('openshiftCreds')
+           //MYSQL_CREDS = credentials('MySQLCreds')
+          }
       steps {
-        sh "oc login https://localhost:8443 --username admin --password admin --insecure-skip-tls-verify=true"
+        sh "oc login -u ${OPENSHIFT_CREDS_USR} -p ${OPENSHIFT_CREDS_PSW}"
         sh "oc project ${projectName} || oc new-project ${projectName}"
         sh "oc delete all --selector app=${projectName} || echo 'Unable to delete all previous openshift resources'"
         sh "oc new-app ${dockerImageTag} -l version=${version}"
