@@ -27,7 +27,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Album REST API with Swagger")
+                .title("Stock Ordering REST API with Swagger")
                 .description("This API allows you to interact with stock ordering. It is a CRUD API")
                 //.termsOfServiceUrl("http://www.conygre.com")
 //                .contact(new Contact("Nick Todd", "http://www.conygre.com", "nick.todd@conygre.com"))
