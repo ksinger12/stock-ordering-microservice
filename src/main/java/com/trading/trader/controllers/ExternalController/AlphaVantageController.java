@@ -28,7 +28,7 @@ public class AlphaVantageController {
         return alphaVantageService.getStockCompanyOverview(ticker);
     }
 
-    @GetMapping(value = "/company/quote/{stockTicker")
+    @GetMapping(value = "/company/quote/{stockTicker}")
     public QuoteResponse getStockQuote(@PathVariable("stockTicker") String ticker) {
         return alphaVantageService.getStockQuote(ticker);
     }
