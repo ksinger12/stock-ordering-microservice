@@ -36,6 +36,14 @@ public class Trade implements Serializable {
         this.price = price;
     }
 
+    public Trade(String tickerSymbol, String companyName, String dateEntered, String orderType, Integer quantity, Double price) {
+        this.tickerSymbol = tickerSymbol;
+        this.companyName = companyName;
+        this.dateEntered = dateEntered;
+        this.orderType = orderType;
+        this.quantity = quantity;
+        this.price = price;
+    }
     public Trade() {
     }
 
