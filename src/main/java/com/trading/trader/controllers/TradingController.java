@@ -57,10 +57,6 @@ public class TradingController {
         //TODO: each trade will affect the holdings, so should implement that somehow
     }
 
-    @DeleteMapping(value = "/{id}")
-    public void deleteTrade(@PathVariable("id") int id) {
-        tradeService.deleteTrade(id);
-    }
 
 
 }
