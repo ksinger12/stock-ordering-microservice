@@ -25,8 +25,11 @@ public class HoldingController {
     }
 
     @PostMapping(value="/")
-    public void addHolding(@RequestBody Holding holding) {
-        holdingService.addNewHolding(holding);
+    public void addHolding(@RequestParam("tickerSymbol") String tickerSymbol,
+                           @RequestParam("companyName") String companyName,
+                           @RequestParam("numberOfShares") Integer numberOfShares) {
+        Holding holdingToAdd = new Holding(tickerSymbol, companyName, numberOfShares);
+        holdingService.addNewHolding(holdingToAdd);
     }
 
 
