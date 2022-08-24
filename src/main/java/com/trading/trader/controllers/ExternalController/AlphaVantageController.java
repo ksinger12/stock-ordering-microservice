@@ -3,6 +3,7 @@ package com.trading.trader.controllers.ExternalController;
 import com.crazzyghost.alphavantage.fundamentaldata.response.CompanyOverviewResponse;
 import com.crazzyghost.alphavantage.parameters.Interval;
 import com.crazzyghost.alphavantage.sector.response.SectorResponse;
+import com.crazzyghost.alphavantage.timeseries.response.QuoteResponse;
 import com.crazzyghost.alphavantage.timeseries.response.TimeSeriesResponse;
 import com.trading.trader.service.AlphaVantageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class AlphaVantageController {
     @GetMapping(value = "/company/overview/{stockTicker}")
     public CompanyOverviewResponse getCompanyOverview(@PathVariable("stockTicker") String ticker) {
         return alphaVantageService.getStockCompanyOverview(ticker);
+    }
+
+    @GetMapping(value = "/company/quote/{stockTicker")
+    public QuoteResponse getStockQuote(@PathVariable("stockTicker") String ticker) {
+        return alphaVantageService.getStockQuote(ticker);
     }
 
     @GetMapping(value = "/sector")

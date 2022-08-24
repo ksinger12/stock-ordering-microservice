@@ -3,6 +3,7 @@ package com.trading.trader.service;
 import com.crazzyghost.alphavantage.fundamentaldata.response.CompanyOverviewResponse;
 import com.crazzyghost.alphavantage.parameters.Interval;
 import com.crazzyghost.alphavantage.sector.response.SectorResponse;
+import com.crazzyghost.alphavantage.timeseries.response.QuoteResponse;
 import com.crazzyghost.alphavantage.timeseries.response.TimeSeriesResponse;
 
 public interface AlphaVantageService {
@@ -12,4 +13,6 @@ public interface AlphaVantageService {
     CompanyOverviewResponse getStockCompanyOverview(String stockSymbol);
 
     SectorResponse getSectorInfo();
+
+    QuoteResponse getStockQuote(String stockSymbol);
 }
