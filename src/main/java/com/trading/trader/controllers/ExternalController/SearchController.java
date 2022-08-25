@@ -1,14 +1,18 @@
 package com.trading.trader.controllers.ExternalController;
 
 import org.springframework.http.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
+@RequestMapping("/api/stock")
 public class SearchController {
 
-    // @GetMapping(value = "/search")
-    public static Object getStockName(String keyword) {
+    @GetMapping(value = "/search/{keyword}")
+    public static Object getStockName(@PathVariable("keyword") String keyword) {
         String url = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyword +
                 "&apikey=RBJRR2YCUMFQRRKZ";
         RestTemplate restTemplate = new RestTemplate();
