@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 public class SearchController {
 
     @GetMapping(value = "/search/{stockName}")
-    public static Object getStockName(@PathVariable("stockName") String keyword) {
+    public Object getStockName(@PathVariable("stockName") String keyword) {
         String url = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyword +
                 "&apikey=RBJRR2YCUMFQRRKZ";
         RestTemplate restTemplate = new RestTemplate();
