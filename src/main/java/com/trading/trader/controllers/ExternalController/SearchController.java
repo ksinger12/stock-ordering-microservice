@@ -9,8 +9,8 @@ import org.springframework.web.client.RestTemplate;
 @CrossOrigin
 public class SearchController {
 
-    @GetMapping(value = "/search/{keyword}")
-    public static Object getStockName(@PathVariable("keyword") String keyword) {
+    @GetMapping(value = "/search/{stockName}")
+    public static Object getStockName(@PathVariable("stockName") String keyword) {
         String url = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyword +
                 "&apikey=RBJRR2YCUMFQRRKZ";
         RestTemplate restTemplate = new RestTemplate();
